@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    
+    <!-- 
+    ===========================
+    DEFAULT GENDARME PROPERTIES
+    ===========================
+    -->
+    <PropertyGroup>
+        
+        <!-- Run the code audit 'true' or not 'false'. -->
+        <CodeAudit>true</CodeAudit>
+        
+        <!-- Custom rule set see: 
+                ../Build/Private/Library/Gendarme/rules.xml -->
+        <GendarmeConfig></GendarmeConfig>
+        
+        <!-- Posible values are:
+        default, concurrency, correctness, security, security-cas, 
+        performance, portability, exceptions, ui, naming, unit-test, 
+        smells, badpractice, design, design-generic, design-linq, 
+        interoperability, interop-com, serialization, maintainability, 
+        globalization
+        -->
+        <GSet>default</GSet>
+        <GLog></GLog>
+        <GXml></GXml>
+        <GHtml>$(DistDocDir)/CodeAudit/audit.html</GHtml>
+        
+        <!-- Do not report defects listed in the specified file. -->
+        <!-- !!! Experimental !!! -->
+        <GIgnore></GIgnore>
+        
+        <!-- Filter defects for the specified severity levels.
+        Possible values are: 
+                all, audit, low, medium, high, critical
+                
+        In addition the property can have a + (plus) or - (minus)
+        character after it. This allows the severity to be set from
+        the severity level up (+) or down (-). For example: high+ 
+        would report errors of type high and critical, where as high-
+        would report errors of type high, medium, low and audit.
+         
+        Defaults to medium+
+        
+        WARNING: Do not use 'all' with the + and - options as this 
+                 will cause the code audit to fail.
+        -->
+        <GSeverity>medium+</GSeverity>
+        
+        <!-- Filter defects for the specified confidence levels.
+        Possible values are: 
+                all, low, normal, high, total
+                
+        In addition the property can have a + (plus) or - (minus)
+        character after it. This allows the confidence to be set from
+        the confidence level up (+) or down (-). For example: high+ 
+        would report errors of type high and total, where as high-
+        would report errors of type high, normal and low.
+         
+        Defaults to normal+
+        
+        WARNING: Do not use 'all' with the + and - options as this 
+                 will cause the code audit to fail.
+        -->
+        <GConfidence>normal+</GConfidence>
+        
+    </PropertyGroup>
+
+</Project>

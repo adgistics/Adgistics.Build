@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<!--
+    Copyright (c) Adgistics Limited and others. All rights reserved.
+    The contents of this file are subject to the terms of the
+    Adgistics Development and Distribution License (the "License").
+    You may not use this file except in compliance with the License.
+
+    http://www.adgistics.com/license.html
+
+    See the License for the specific language governing permissions
+    and limitations under the License.
+-->
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+    ToolsVersion="4.0">
+
+    <PropertyGroup>
+        <!-- These are the standard settings to be used no matter what build configuration is chosen -->
+        <OutputPath>$(LibDir)</OutputPath>
+        <DocumentationFile>$(DocsDir)\$(MSBuildProjectName).xml</DocumentationFile>
+    </PropertyGroup>
+
+
+    <!-- Configuration Targets - DEBUG -->
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'ArpDebug|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <DefineConstants>DEBUG;TRACE;</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <ConsolePause>false</ConsolePause>
+        <LangVersion>5</LangVersion>
+        <RunCodeAnalysis>false</RunCodeAnalysis>
+    </PropertyGroup>
+    <!-- Configuration Targets - RELEASE -->
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'ArpRelease|AnyCPU' ">
+        <Optimize>true</Optimize>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <ConsolePause>false</ConsolePause>
+        <DefineConstants>DEBUG;TRACE;</DefineConstants>
+        <LangVersion>5</LangVersion>
+        <RunCodeAnalysis>false</RunCodeAnalysis>
+    </PropertyGroup>
+</Project>

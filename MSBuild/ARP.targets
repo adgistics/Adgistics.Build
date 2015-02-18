@@ -1,0 +1,741 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<!--
+    Copyright (c) Adgistics Limited and others. All rights reserved.
+    The contents of this file are subject to the terms of the
+    Adgistics Development and Distribution License (the "License").
+    You may not use this file except in compliance with the License.
+
+    http://www.adgistics.com/license.html
+
+    See the License for the specific language governing permissions
+    and limitations under the License.
+-->
+
+<!--
+     ======================================================================
+
+     Release Name: ARP.targets
+
+     Project:      ARP Build System
+
+     Description:  The default Build system for ARP.
+
+                    For the purpose of easier reading the script
+                    is divided into following sections:
+
+                        - Before Clean
+                        - Clean
+                        - After Clean
+                        - Before Init
+                        - Init
+                        - After Init
+                        - Before Build
+                        - After Build
+                        - Before Test
+                        - Test
+                        - After Test
+                        - Before Documentation
+                        - Documentation
+                        - After Documentation
+                        - Before Distribution
+                        - Distribution
+                        - After Distribution
+
+                    To use this file you need to import the following
+                    at the bottom of your project file (the order is
+                    important):
+
+                    <Import Project="..\Tools\MSBuild\ARP.CSharp.targets" />
+
+     Adgistics Ltd.
+     ======================================================================
+     _CheckForInvalidConfigurationAndPlatform
+-->
+
+<Project
+    xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+    ToolsVersion="4.5">
+
+
+    <Import Project="MSBuild.Community.Tasks.Targets" />
+
+    <!--
+    ======================
+    BEFORE CLEAN
+    ======================
+    -->
+    <PropertyGroup>
+        <ArpBeforeCleanDependsOn />
+    </PropertyGroup>
+
+    <!--
+     Empty Element For Build Hook See 'ArpBeforeCleanDependsOn' for order.
+    -->
+    <Target Name="BeforeClean" DependsOnTargets="$(ArpBeforeCleanDependsOn)"/>
+
+
+
+    <!--
+    ======================
+    CLEAN
+    ======================
+    -->
+    <PropertyGroup>
+        <ArpCoreCleanDependsOn>
+            BeforeClean;
+            CoreClean;
+            AfterClean;
+        </ArpCoreCleanDependsOn>
+    </PropertyGroup>
+
+    <!--
+     Empty Element For Build Hook See 'ArpCoreCleanDependsOn' for order.
+    -->
+    <Target Name="Clean" DependsOnTargets="$(ArpCoreCleanDependsOn)"/>
+
+    <Target Name="CoreClean">
+        <RemoveDir Directories="$(OutputDir)" Condition=" Exists('$(OutputDir)') " />
+    </Target>
+
+
+
+    <!--
+    ======================
+    AFTER CLEAN
+    ======================
+    -->
+    <PropertyGroup>
+        <ArpAfterCleanDependsOn />
+    </PropertyGroup>
+
+    <!--
+     Empty Element For Build Hook See 'ArpAfterCleanDependsOn' for order.
+    -->
+    <Target Name="AfterClean" DependsOnTargets="$(ArpAfterCleanDependsOn)"/>
+
+
+
+    <!--
+    ======================
+    BEFORE INIT
+    ======================
+    -->
+    <PropertyGroup>
+        <ArpBeforeInitDependsOn>
+            -Macro-Check-Assembly-Type;
+            -Macro-Initialise-Build-Configuration;
+        </ArpBeforeInitDependsOn>
+    </PropertyGroup>
+
+    <!--
+     Empty Element For Build Hook See 'ArpBeforeInitDependsOn' for order.
+    -->
+    <Target Name="BeforeInit" DependsOnTargets="$(ArpBeforeInitDependsOn)"/>
+
+
+
+    <!--
+    ======================
+    Init
+    ======================
+    -->
+    <PropertyGroup>
+        <ArpCoreInitDependsOn>
+            BeforeInit;
+            CoreInit;
+            AfterInit;
+        </ArpCoreInitDependsOn>
+    </PropertyGroup>
+
+    <!--
+     Empty Element For Build Hook See 'ArpCoreInitDependsOn' for order.
+    -->
+    <Target Name="Init" DependsOnTargets="$(ArpCoreInitDependsOn)"/>
+
+    <Target Name="CoreInit">
+        <MakeDir Directories="$(OutputDir)" Condition=" !Exists('$(OutputDir)') " />
+        <MakeDir Directories="$(BinDir)" Condition=" !Exists('$(BinDir)') " />
+        <MakeDir Directories="$(LogDir)" Condition=" !Exists('$(LogDir)') " />
+        <MakeDir Directories="$(LibDir)" Condition=" !Exists('$(LibDir)') " />
+        <MakeDir Directories="$(DocsDir)" Condition=" !Exists('$(DocsDir)') " />
+        <MakeDir Directories="$(ConfigDir)" Condition=" !Exists('$(ConfigDir)') " />
+        <MakeDir Directories="$(DistDir)" Condition=" !Exists('$(DistDir)') " />
+    </Target>
+
+
+
+    <!--
+    ======================
+    AFTER INIT
+    ======================
+    -->
+    <PropertyGroup>
+        <ArpAfterInitDependsOn>
+            -Macro-Restore-Packages;
+        </ArpAfterInitDependsOn>
+    </PropertyGroup>
+
+    <!--
+     Empty Element For Build Hook See 'ArpAfterInitDependsOn' for order.
+    -->
+    <Target Name="AfterInit" DependsOnTargets="$(ArpAfterInitDependsOn)"/>
+
+
+
+    <!--
+    ======================
+    BEFORE BUILD
+    ======================
+    -->
+    <PropertyGroup>
+        <ArpBeforeBuildDependsOn>
+            Init;
+            -Macro-Build-Increment;
+            -Macro-Code-Formatting;
+        </ArpBeforeBuildDependsOn>
+    </PropertyGroup>
+
+    <!--
+     Empty Element For Build Hook See 'ArpBeforeBuildDependsOn' for order.
+    -->
+    <Target Name="BeforeBuild" DependsOnTargets="$(ArpBeforeBuildDependsOn)"/>
+
+
+
+    <!--
+    ======================
+    AFTER BUILD
+    ======================
+    -->
+    <PropertyGroup>
+        <ArpAfterBuildDependsOn>
+            -Macro-Copy-Configuration;
+            -Macro-Code-Analysis;
+        </ArpAfterBuildDependsOn>
+    </PropertyGroup>
+
+    <!--
+     Empty Element For Build Hook See 'ArpAfterBuildDependsOn' for order.
+    -->
+    <Target Name="AfterBuild" DependsOnTargets="$(ArpAfterBuildDependsOn)"/>
+
+
+
+    <!--
+    ======================
+    BEFORE TEST
+    ======================
+    -->
+    <PropertyGroup>
+        <ArpBeforeTestDependsOn>
+        </ArpBeforeTestDependsOn>
+    </PropertyGroup>
+
+    <!--
+     Empty Element For Build Hook See 'ArpBeforeTestDependsOn' for order.
+    -->
+    <Target Name="BeforeTest" DependsOnTargets="$(ArpBeforeTestDependsOn)" Condition=" $(IsTestAssembly) == 'True' " />
+
+
+
+    <!--
+    ======================
+    TEST
+    ======================
+    -->
+    <PropertyGroup>
+        <ArpCoreTestDependsOn>
+            Build;
+            BeforeTest;
+            CoreTest;
+            AfterTest;
+        </ArpCoreTestDependsOn>
+    </PropertyGroup>
+
+    <!--
+     Empty Element For Build Hook See 'ArpCoreTestDependsOn' for order.
+    -->
+    <Target Name="Test" DependsOnTargets="$(ArpCoreTestDependsOn)" />
+
+    <Target Name="CoreTest" Condition=" $(IsTestAssembly) == 'True' ">
+        <CreateItem Include="$(LibDir)\*Test.dll;">
+            <Output TaskParameter="Include" ItemName="TestAssemblies" />
+        </CreateItem>
+
+        <PropertyGroup Condition=" '$(OS)' == 'Windows_NT'">
+            <!-- Windows specific commands -->
+            <NunitCommand>$(NunitRunnerExe) /nologo /noshadow @(TestAssemblies, ' ') /xml=$(TestReportFile)</NunitCommand>
+        </PropertyGroup>
+
+        <PropertyGroup Condition=" '$(OS)' != 'Windows_NT'">
+            <NunitCommand>$(CommandPrefix) $(NunitRunnerExe) -nologo -noshadow @(TestAssemblies, ' ') -xml=$(TestReportFile)</NunitCommand>
+        </PropertyGroup>
+
+        <Exec Command="$(NunitCommand)" WorkingDirectory="$(LibDir)"
+              Condition="'@(TestAssemblies)' != ''" />
+     </Target>
+
+
+
+    <!--
+    ======================
+    AFTER TEST
+    ======================
+    -->
+    <PropertyGroup>
+        <ArpAfterTestDependsOn>
+          -Macro-Nunit-Report;
+        </ArpAfterTestDependsOn>
+    </PropertyGroup>
+
+    <!--
+     Empty Element For Build Hook See 'ArpAfterTestDependsOn' for order.
+    -->
+    <Target Name="AfterTest" DependsOnTargets="$(ArpAfterTestDependsOn)" Condition=" $(IsTestAssembly) == 'True' "/>
+
+
+
+    <!--
+    ======================
+    BEFORE DOCUMENTATION
+    ======================
+    -->
+    <PropertyGroup>
+        <ArpBeforeDocumentationDependsOn>
+        </ArpBeforeDocumentationDependsOn>
+    </PropertyGroup>
+
+    <!--
+     Empty Element For Build Hook See 'ArpBeforeDocumentationDependsOn' for order.
+    -->
+    <Target Name="BeforeDocumentation" DependsOnTargets="$(ArpBeforeDocumentationDependsOn)"/>
+
+
+
+    <!--
+    ======================
+    DOCUMENTATION
+    ======================
+    -->
+    <PropertyGroup>
+        <ArpCoreDocumentationDependsOn>
+            Build;
+            Test;
+            BeforeDocumentation;
+            CoreDocumentation;
+            AfterDocumentation;
+        </ArpCoreDocumentationDependsOn>
+    </PropertyGroup>
+
+    <!--
+     Empty Element For Build Hook See 'ArpCoreDocumentationDependsOn' for order.
+    -->
+    <Target Name="Documentation" DependsOnTargets="$(ArpCoreDocumentationDependsOn)"/>
+
+    <Target Name="CoreDocumentation">
+
+    </Target>
+
+
+
+    <!--
+    ======================
+    AFTER DOCUMENTATION
+    ======================
+    -->
+    <PropertyGroup>
+        <ArpAfterDocumentationDependsOn>
+        </ArpAfterDocumentationDependsOn>
+    </PropertyGroup>
+
+    <!--
+     Empty Element For Build Hook See 'ArpAfterDocumentationDependsOn' for order.
+    -->
+    <Target Name="AfterDocumentation" DependsOnTargets="$(ArpAfterDocumentationDependsOn)"/>
+
+
+
+    <!--
+    ======================
+    BEFORE DISTRIBUTION
+    ======================
+    -->
+    <PropertyGroup>
+        <ArpBeforeDistributionDependsOn>
+        </ArpBeforeDistributionDependsOn>
+    </PropertyGroup>
+
+    <!--
+     Empty Element For Build Hook See 'ArpBeforeDistributionDependsOn' for order.
+    -->
+    <Target Name="BeforeDistribution" DependsOnTargets="$(ArpBeforeDistributionDependsOn)"/>
+
+
+
+    <!--
+    ======================
+    DISTRIBUTION
+    ======================
+    -->
+    <PropertyGroup>
+        <ArpCoreDistributionDependsOn>
+            Clean;
+            Build;
+            Test;
+            Documentation;
+            BeforeDistribution;
+            CoreDistribution;
+            AfterDistribution;
+        </ArpCoreDistributionDependsOn>
+    </PropertyGroup>
+
+    <!--
+     Empty Element For Build Hook See 'ArpCoreDistributionDependsOn' for order.
+    -->
+    <Target Name="Distribution" DependsOnTargets="$(ArpCoreDistributionDependsOn);-Macro-Set-NuGet-Framework-Version"/>
+
+    <Target Name="CoreDistribution"
+            Condition="$(AllowPackageDeploy) == 'true' AND Exists('$(ProjectNuspecFilePath)')" DependsOnTargets="-Macro-Set-NuGet-Framework-Version">
+
+        <!-- Copy the nupsec file, used to define the package, into the 'dist' dir -->
+        <Copy SourceFiles="$(ProjectNuspecFilePath)"
+              DestinationFolder="$(DistDir)" />
+
+        <!-- Create the libs directory for the package -->
+        <MakeDir Directories="$(PackageSourceTempDir)" />
+
+        <!-- Copy the assembly dll/exe/pdb/xml to the package libs folder -->
+        <Copy SourceFiles="$(LibDir)/$(AssemblyName)$(TargetExt)"
+              DestinationFolder="$(PackageSourceTempDir)"
+              Condition=" Exists('$(LibDir)/$(AssemblyName)$(TargetExt)') " />
+        <Copy SourceFiles="$(LibDir)/$(AssemblyName).pdb"
+              DestinationFolder="$(PackageSourceTempDir)"
+              Condition=" Exists('$(LibDir)/$(AssemblyName).pdb') " />
+        <Copy SourceFiles="$(LibDir)/$(AssemblyName)$(TargetExt).mdb"
+              DestinationFolder="$(PackageSourceTempDir)"
+              Condition=" Exists('$(LibDir)/$(AssemblyName)$(TargetExt).mdb') " />
+        <Copy SourceFiles="$(LibDir)/$(AssemblyName).xml"
+              DestinationFolder="$(PackageSourceTempDir)"
+              Condition=" Exists('$(LibDir)/$(AssemblyName).xml') " />
+
+        <!-- Extract the current version number for the package -->
+        <Version VersionFile="version.txt" RevisionType="None">
+            <Output TaskParameter="Major" PropertyName="Major" />
+            <Output TaskParameter="Minor" PropertyName="Minor" />
+            <Output TaskParameter="Build" PropertyName="Build" />
+            <Output TaskParameter="Revision" PropertyName="Revision" />
+        </Version>
+
+        <CreateProperty Value="$(Major).$(Minor).$(Build).$(Revision)">
+            <Output TaskParameter="Value" PropertyName="AssemblyVersion" />
+        </CreateProperty>
+
+        <!-- Construct the packaging command -->
+        <CreateProperty Value="-NonInteractive"
+                        Condition=" '$(VisualStudioVersion)' != '' AND '$(OS)' == 'Windows_NT' ">
+            <Output TaskParameter="Value" PropertyName="NonInteractiveSwitch" />
+        </CreateProperty>
+        <CreateProperty
+            Condition=" '$(OS)' == 'Windows_NT' "
+            Value='$(NuGetCommand) pack "$(DistDir)\$(ProjectNuspecFileName)" $(NonInteractiveSwitch) -OutputDirectory "$(DistDir)" -BasePath "$(DistDir)" -Symbols -Verbosity Detailed -Properties Configuration=$(Configuration) -Properties id="$(AssemblyName)" -Properties version=$(AssemblyVersion) -Properties title="$(AssemblyTitle)" -Properties description="$(AssemblyDescription)" -Properties LibFrom="temp\*.*" -Properties LibTo="lib\$(FrameworkVersion)" -Properties SourceFrom="..\..\..\..\$(AssemblyName)\**\*.cs" -Properties SourceTo="src"'>
+            <Output TaskParameter="Value" PropertyName="BuildCommand" />
+        </CreateProperty>
+
+        <CreateProperty
+            Condition=" '$(OS)' != 'Windows_NT' "
+            Value='$(NuGetCommand) pack "$(DistDir)\$(ProjectNuspecFileName)" $(NonInteractiveSwitch) -OutputDirectory "$(DistDir)" -BasePath "$(DistDir)" -Symbols -Verbosity Detailed -Properties Configuration=$(Configuration) -Properties id="$(AssemblyName)" -Properties version=$(AssemblyVersion) -Properties title="$(AssemblyTitle)" -Properties description="$(AssemblyDescription)" -Properties LibFrom="temp/*.*" -Properties LibTo="lib/$(FrameworkVersion)" -Properties SourceFrom="../../../../$(AssemblyName)/**/*.cs" -Properties SourceTo="src"'>
+            <Output TaskParameter="Value" PropertyName="BuildCommand" />
+        </CreateProperty>
+
+        <!-- Execute the packaging command -->
+        <Exec Command="$(BuildCommand)"
+              Condition=" '$(OS)' != 'Windows_NT' " />
+
+        <Exec Command="$(BuildCommand)"
+              LogStandardErrorAsError="true"
+              Condition=" '$(OS)' == 'Windows_NT' " />
+    </Target>
+
+
+
+    <!--
+    ======================
+    AFTER DISTRIBUTION
+    ======================
+    -->
+    <PropertyGroup>
+        <ArpAfterDistributionDependsOn>
+        </ArpAfterDistributionDependsOn>
+    </PropertyGroup>
+
+    <!--
+     Empty Element For Build Hook See 'ArpAfterDistributionDependsOn' for order.
+    -->
+    <Target Name="AfterDistribution" DependsOnTargets="$(ArpAfterDistributionDependsOn)"/>
+
+
+
+    <!--
+    ======================
+    INTERNAL TARGETS
+    ======================
+    -->
+
+
+	<!--
+		This targets sets the framework version property which is used by the
+		NuGet to distribute it into the correct folder.
+
+		See for package names: http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package
+		See for framework names: http://msdn.microsoft.com/en-us/library/hh264221.aspx
+
+		Unfortunately the NuGet and Framework team use different formats to specify the version.
+		Therefore we have to use the following manual list instead of anything programmatic.
+	-->
+	<Target Name="-Macro-Set-NuGet-Framework-Version">
+		<PropertyGroup Condition="'$(TargetFrameworkVersion)' == 'v3.5'" >
+		  <FrameworkVersion>net35</FrameworkVersion>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(TargetFrameworkVersion)' == 'v4.0'" >
+		  <FrameworkVersion>net40</FrameworkVersion>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(TargetFrameworkVersion)' == 'v4.5'" >
+		  <FrameworkVersion>net45</FrameworkVersion>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(TargetFrameworkVersion)' == 'v4.5.1'" >
+		  <FrameworkVersion>net451</FrameworkVersion>
+		</PropertyGroup>
+	</Target>
+    <!--
+        This target initialises build configuration options for the projects.
+        This are typically build configuration option which require a bit
+        of runtime analysis in order to know what to set their values to.
+
+        Other build configuration values can be seen within the
+        ARP.build-profiles file.
+    -->
+    <Target Name="-Macro-Initialise-Build-Configuration">
+        <!--
+        We want to switch on the TreatWarningsAsErrors property/flag for the
+        projects, but we don't want it to run for Test projects.
+        -->
+        <CreateProperty Value="false" Condition=" $(IsTestAssembly) == 'True' ">
+            <Output TaskParameter="Value" PropertyName="TreatWarningsAsErrors" />
+        </CreateProperty>
+        <CreateProperty Value="true" Condition=" $(IsTestAssembly) == 'False' ">
+            <Output TaskParameter="Value" PropertyName="TreatWarningsAsErrors" />
+        </CreateProperty>
+    </Target>
+
+
+    <!--
+        This will check to see if the project being run is a Test project.  It
+        does so by trying to do a search/match of the word 'Test' within the
+        assembly name.  If this is found, then the assembly is considered to
+        be a test assembly.
+        A property called 'IsTestAssembly' will be created which will contain
+        a boolean value indicating whether the assembly is a test assembly or
+        not.
+    -->
+    <Target Name="-Macro-Check-Assembly-Type">
+
+        <RegexMatch Input="$(AssemblyName)" Expression="test" Options="CultureInvariant;IgnoreCase">
+            <Output ItemName="MatchReturn" TaskParameter="Output" />
+        </RegexMatch>
+
+        <!-- Get the regex result -->
+        <CreateProperty Value="@(MatchReturn)">
+            <Output TaskParameter="Value" PropertyName="RegexMatchResult" />
+        </CreateProperty>
+
+        <!-- Check the match if is empty or not.  If it is not empty, then this
+        is a test assembly, else it is not a test assembly. -->
+        <CreateProperty Value="True" Condition="$(RegexMatchResult) != ''">
+            <Output TaskParameter="Value" PropertyName="IsTestAssembly" />
+        </CreateProperty>
+        <CreateProperty Value="False" Condition="$(RegexMatchResult) == ''">
+            <Output TaskParameter="Value" PropertyName="IsTestAssembly" />
+        </CreateProperty>
+    </Target>
+
+
+    <!--
+        This target formats the code into a standardised structure.
+    -->
+    <Target Name="-Macro-Code-Formatting" Condition=" $(IsTestAssembly) == 'False' ">
+
+        <Exec Command='$(NarrangeCommand)' WorkingDirectory="$(MSBuildProjectDirectory)">
+            <Output TaskParameter="ExitCode" PropertyName="NarrangeExitCode"/>
+        </Exec>
+
+    </Target>
+
+
+    <!--
+        This target performs code analysis on the source to ensure it meets
+        design guidelines and best practices.
+    -->
+    <Target Name="-Macro-Code-Analysis" Condition=" $(IsTestAssembly) == 'False' AND $(GendarmeEnabled) == 'True' ">
+
+        <!-- If there is a 'know issues' file, then we need to build up this
+        part of the command. -->
+        <CreateProperty Value="--ignore $(GendarmeKnownIssues)" Condition=" Exists('$(GendarmeKnownIssues)') ">
+            <Output TaskParameter="Value" PropertyName="KnownIssuesFlag" />
+        </CreateProperty>
+        <CreateProperty Value="" Condition=" !Exists('$(GendarmeKnownIssues)') ">
+            <Output TaskParameter="Value" PropertyName="KnownIssuesFlag" />
+        </CreateProperty>
+
+        <!-- Execute the analysis command -->
+        <Exec Command='$(GendarmeRootCommand) $(LibDir)\$(AssemblyName)$(TargetExt) $(KnownIssuesFlag)'>
+            <Output TaskParameter="ExitCode" PropertyName="GendarmeExitCode"/>
+        </Exec>
+    </Target>
+
+
+    <!--
+        This target generates the HTML nunit report based on the test output.
+    -->
+    <Target Name="-Macro-Nunit-Report"  Condition=" $(IsTestAssembly) == 'True' AND Exists('$(TestReportFile)') ">
+        <MakeDir Directories="$(NunitReportDirectory)"/>
+
+        <Exec Command='$(NunitReportCommand)' />
+    </Target>
+
+
+    <!--
+        This target restores nuget packages based on the packages registered
+        within the project's packages.config file.
+    -->
+    <Target Name="-Macro-Restore-Packages">
+        <Exec Command="$(RestoreCommand)"
+              Condition="'$(OS)' != 'Windows_NT' And Exists('$(PackagesConfig)')" />
+
+        <Exec Command="$(RestoreCommand)"
+              LogStandardErrorAsError="true"
+              Condition="'$(OS)' == 'Windows_NT' And Exists('$(PackagesConfig)')" />
+    </Target>
+
+    <Target Name="-Macro-Copy-Configuration">
+        <CreateItem Include="$(MSBuildProjectDirectory)/config/*.config">
+            <Output TaskParameter="Include" ItemName="ConfigItems" />
+        </CreateItem>
+
+        <Copy DestinationFolder='$(ConfigDir)' SourceFiles="@(ConfigItems)" SkipUnchangedFiles="false" />
+    </Target>
+
+
+    <!--
+        This target creates the current version information for a project
+        and updates the metadata in Source/CSharp/Propeties/AssemblyInfo.cs
+
+        The version information is managed as Major.Minor.Build.Revision,
+        (these are the Microsoft names at Adgistics we more communal
+        refer to them as Major.Minor.Point.Build).
+
+        After a call to this target (it is performed early in the build cycle
+        in a standard build before "-Pre-Pre-Init"), the properties Major, Minor,
+        Point and Build are avalible for use. In addition the combined property
+        AssemblyVersion is updated to "Major.Minor.Build.Revision" as one value.
+    -->
+    <Target
+        Name="-Macro-Build-Increment">
+        <Error
+            Condition="'$(AssemblyName)' == '' Or '$(AssemblyName)' == 'Name...'"
+            Text="Argument: 'AssemblyName' must be set in Build.xml header." />
+
+        <Error
+            Condition="'$(AssemblyTitle)' == '' Or '$(AssemblyTitle)' == 'Title...'"
+            Text="Argument: 'AssemblyTitle' must be set in Build.xml header." />
+
+        <Error
+            Condition="'$(AssemblyDescription)' == '' Or '$(AssemblyDescription)' == 'Description...'"
+            Text="Argument: 'AssemblyDescription' must be set in Build.xml header." />
+
+        <Error
+            Condition="'$(AssemblyProduct)' == '' Or '$(AssemblyProduct)' == 'Product...'"
+            Text="Argument: 'AssemblyProduct' must be set in Build.xml header." />
+
+        <Version VersionFile="version.txt" RevisionType="Increment">
+            <Output TaskParameter="Major" PropertyName="Major" />
+            <Output TaskParameter="Minor" PropertyName="Minor" />
+            <Output TaskParameter="Build" PropertyName="Build" />
+            <Output TaskParameter="Revision" PropertyName="Revision" />
+        </Version>
+
+        <Time Format="yyyy">
+            <Output TaskParameter="FormattedTime" PropertyName="CopyrightYear" />
+        </Time>
+
+        <Time Format="MMdd">
+            <Output TaskParameter="FormattedTime" PropertyName="Date" />
+        </Time>
+
+        <CreateProperty
+            Value="$(Major).$(Minor).$(Build).$(Date)">
+            <Output TaskParameter="Value" PropertyName="FileVersion" />
+        </CreateProperty>
+
+        <CreateProperty Value="$(Major).$(Minor).$(Build).$(Revision)">
+            <Output TaskParameter="Value" PropertyName="AssemblyVersion" />
+        </CreateProperty>
+
+        <CreateProperty Value="$(AssemblyName)-$(AssemblyVersion)">
+            <Output TaskParameter="Value" PropertyName="Assembly" />
+        </CreateProperty>
+
+        <Message Text="Name:        $(AssemblyName)"/>
+        <Message Text="Product:     $(AssemblyProduct)"/>
+        <Message Text="Title:       $(AssemblyTitle)"/>
+        <Message Text="Description: $(AssemblyDescription)"/>
+        <Message Text="Version:     $(AssemblyVersion)"/>
+
+        <MSBuild.Community.Tasks.AssemblyInfo
+            OutputFile="$(SolutionDir)\$(AssemblyName)\Properties\AssemblyInfo.cs"
+            AssemblyTitle="$(AssemblyTitle)"
+            AssemblyDescription="$(AssemblyDescription)"
+            AssemblyCompany="http://www.adgistics.com"
+            AssemblyProduct="$(AssemblyProduct)"
+            AssemblyCopyright="Copyright (c) $(CopyrightYear) Adgistics Limited"
+            CodeLanguage="CS"
+            ComVisible="false"
+            CLSCompliant="true"
+            AssemblyVersion="$(AssemblyVersion)"
+            AssemblyFileVersion="$(FileVersion)"
+            AssemblyInformationalVersion = "$(AssemblyVersion)"
+             />
+    </Target>
+
+    <!--
+    ======================
+    DEBUG HOOKS
+    ======================
+
+    <PropertyGroup>
+        <ArpCoreDebugDependsOn>
+            ArpCoreDebug;
+            PrepareForBuild;
+        </ArpCoreDebugDependsOn>
+
+        <CoreBuildDependsOn>
+            ArpCoreDebug;
+            $(CoreBuildDependsOn)
+        </CoreBuildDependsOn>
+    </PropertyGroup>
+
+
+    <Target Name="ArpDebug" DependsOnTargets="$(ArpCoreDebugDependsOn)"/>
+
+    <Target Name="ArpCoreDebug">
+        <Message Text="*********** ToolsDir = $(ToolsDir)" />
+        <Message Text="*********** SolutionDir = $(SolutionDir)" />
+        <Message Text="*********** OutputDir = $(OutputDir)" />
+        <Message Text="*********** OutDir = $(OutDir)" />
+        <Message Text="*********** IntermediateOutputPath = $(IntermediateOutputPath)" />
+        <Message Text="*********** DocFileItem = @(DocFileItem->'%(RelativeDir)')" />
+    </Target>
+    -->
+
+</Project>

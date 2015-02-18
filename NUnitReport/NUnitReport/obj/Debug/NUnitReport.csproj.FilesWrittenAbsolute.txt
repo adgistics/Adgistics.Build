@@ -1,0 +1,15 @@
+/Users/nealjohnson/Projects/XMLTest/NUnitReport/bin/Debug/NUnitReport.exe.mdb
+/Users/nealjohnson/Projects/XMLTest/NUnitReport/bin/Debug/NUnitReport.exe
+/Users/nealjohnson/Projects/XMLTest/NUnitReport/obj/Debug/NUnitReport.exe
+/Users/nealjohnson/Projects/XMLTest/NUnitReport/obj/Debug/NUnitReport.exe.mdb
+/Users/nealjohnson/Projects/XMLTest/NUnitReport/bin/Debug/i18n.xsl
+/Users/nealjohnson/Projects/XMLTest/NUnitReport/bin/Debug/toolkit.xsl
+/Users/nealjohnson/Projects/XMLTest/NUnitReport/bin/Debug/NUnit-Frame.xsl
+/home/sean/Projects/Tools/NUnitReport/NUnitReport/obj/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/home/sean/Projects/Tools/NUnitReport/NUnitReport/bin/Debug/i18n.xsl
+/home/sean/Projects/Tools/NUnitReport/NUnitReport/bin/Debug/toolkit.xsl
+/home/sean/Projects/Tools/NUnitReport/NUnitReport/bin/Debug/NUnit-Frame.xsl
+/home/sean/Projects/Tools/NUnitReport/NUnitReport/bin/Debug/NUnitReport.exe.mdb
+/home/sean/Projects/Tools/NUnitReport/NUnitReport/bin/Debug/NUnitReport.exe
+/home/sean/Projects/Tools/NUnitReport/NUnitReport/obj/Debug/NUnitReport.exe
+/home/sean/Projects/Tools/NUnitReport/NUnitReport/obj/Debug/NUnitReport.exe.mdb

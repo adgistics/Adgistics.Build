@@ -1,0 +1,11 @@
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.VisualBasic\bin\Release\DefaultConfig.v026.xml
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.VisualBasic\bin\Release\DefaultConfig.xml
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.VisualBasic\bin\Release\NArrange.VisualBasic.dll
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.VisualBasic\bin\Release\NArrange.VisualBasic.pdb
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.VisualBasic\bin\Release\NArrange.VisualBasic.xml
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.VisualBasic\bin\Release\NArrange.Core.dll
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.VisualBasic\bin\Release\ICSharpCode.SharpZipLib.dll
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.VisualBasic\bin\Release\NArrange.Core.pdb
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.VisualBasic\bin\Release\NArrange.Core.xml
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.VisualBasic\obj\Release\NArrange.VisualBasic.dll
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.VisualBasic\obj\Release\NArrange.VisualBasic.pdb

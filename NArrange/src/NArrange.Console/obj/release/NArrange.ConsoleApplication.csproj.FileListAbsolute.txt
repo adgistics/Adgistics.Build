@@ -1,0 +1,17 @@
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.Console\bin\Release\DefaultConfig.v026.xml
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.Console\bin\Release\DefaultConfig.xml
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.Console\bin\Release\narrange-console.exe
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.Console\bin\Release\narrange-console.pdb
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.Console\bin\Release\NArrange.Console.xml
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.Console\bin\Release\NArrange.Core.dll
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.Console\bin\Release\NArrange.CSharp.dll
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.Console\bin\Release\NArrange.VisualBasic.dll
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.Console\bin\Release\ICSharpCode.SharpZipLib.dll
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.Console\bin\Release\NArrange.Core.pdb
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.Console\bin\Release\NArrange.Core.xml
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.Console\bin\Release\NArrange.CSharp.pdb
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.Console\bin\Release\NArrange.CSharp.xml
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.Console\bin\Release\NArrange.VisualBasic.pdb
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.Console\bin\Release\NArrange.VisualBasic.xml
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.Console\obj\Release\narrange-console.exe
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.Console\obj\Release\narrange-console.pdb

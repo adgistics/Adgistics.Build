@@ -1,0 +1,15 @@
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Build-Targets\NUnit-Report-1.0\NUnitReport\obj\Debug\NUnitReport.exe
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Build-Targets\NUnit-Report-1.0\NUnitReport\bin\Debug\i18n.xsl
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Build-Targets\NUnit-Report-1.0\NUnitReport\bin\Debug\toolkit.xsl
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Build-Targets\NUnit-Report-1.0\NUnitReport\bin\Debug\NUnit-Frame.xsl
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Build-Targets\NUnit-Report-1.0\NUnitReport\bin\Debug\NUnitReport.exe
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Build-Targets\NUnit-Report-1.0\NUnitReport\bin\Debug\NUnitReport.pdb
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Build-Targets\NUnit-Report-1.0\NUnitReport\obj\Debug\NUnitReport.csprojResolveAssemblyReference.cache
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Build-Targets\NUnit-Report-1.0\NUnitReport\obj\Debug\NUnitReport.pdb
+C:\Projects\tools\NUnitReport\NUnitReport\bin\Debug\i18n.xsl
+C:\Projects\tools\NUnitReport\NUnitReport\bin\Debug\toolkit.xsl
+C:\Projects\tools\NUnitReport\NUnitReport\bin\Debug\NUnit-Frame.xsl
+C:\Projects\tools\NUnitReport\NUnitReport\bin\Debug\NUnitReport.exe
+C:\Projects\tools\NUnitReport\NUnitReport\bin\Debug\NUnitReport.pdb
+C:\Projects\tools\NUnitReport\NUnitReport\obj\Debug\NUnitReport.exe
+C:\Projects\tools\NUnitReport\NUnitReport\obj\Debug\NUnitReport.pdb

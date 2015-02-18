@@ -1,0 +1,15 @@
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.GuiConfig\bin\Release\DefaultConfig.v026.xml
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.GuiConfig\bin\Release\DefaultConfig.xml
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.GuiConfig\bin\Release\narrange-config.exe
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.GuiConfig\bin\Release\narrange-config.pdb
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.GuiConfig\bin\Release\NArrange.Gui.dll
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.GuiConfig\bin\Release\NArrange.Core.dll
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.GuiConfig\bin\Release\ICSharpCode.SharpZipLib.dll
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.GuiConfig\bin\Release\NArrange.Gui.pdb
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.GuiConfig\bin\Release\NArrange.Core.pdb
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.GuiConfig\bin\Release\NArrange.Core.xml
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.GuiConfig\obj\Release\NArrange.GuiConfig.csprojResolveAssemblyReference.cache
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.GuiConfig\obj\Release\NArrange.GuiConfig.Properties.Resources.resources
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.GuiConfig\obj\Release\NArrange.GuiConfig.csproj.GenerateResource.Cache
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.GuiConfig\obj\Release\narrange-config.exe
+C:\Users\njohnson\Dropbox\Adgistics\Seven\Tools\NArrange\src\NArrange.GuiConfig\obj\Release\narrange-config.pdb
